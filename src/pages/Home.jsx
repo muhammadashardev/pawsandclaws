@@ -27,7 +27,7 @@ import Footer from '../components/Footer';
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen w-full overflow-x-hidden max-w-full">
       {/* Fixed header overlays the hero */}
       <Header />
 

@@ -68,7 +68,7 @@ export default function HeroSection() {
       </div>
 
       {/* ── Content wrapper ── */}
-      <div className="relative z-10 flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-28 pb-36 lg:pb-44">
+      <div className="relative z-10 flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-32 sm:pb-36 lg:pb-44">
 
         {/* ── Tagline badge ── */}
         <motion.div
@@ -76,14 +76,14 @@ export default function HeroSection() {
           initial="hidden"
           animate="show"
           custom={0.1}
-          className="flex items-center gap-4 mb-5"
+          className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5"
         >
-          <span className="flex items-center gap-1.5 text-white/80 text-sm font-medium">
+          <span className="flex items-center gap-1.5 text-white/80 text-xs sm:text-sm font-medium">
             <PawPrint size={14} className="text-green-400" />
             Real Homes
           </span>
           <span className="w-1 h-1 rounded-full bg-white/40" />
-          <span className="flex items-center gap-1.5 text-white/80 text-sm font-medium">
+          <span className="flex items-center gap-1.5 text-white/80 text-xs sm:text-sm font-medium">
             <Heart size={13} className="text-rose-400 fill-rose-400" />
             Happy Tails
           </span>
@@ -95,7 +95,7 @@ export default function HeroSection() {
           initial="hidden"
           animate="show"
           custom={0.2}
-          className="text-3xl sm:text-5xl md:text-6xl lg:text-[66px] font-extrabold text-white leading-[1.14] max-w-3xl tracking-tight"
+          className="text-[28px] xs:text-3xl sm:text-5xl md:text-6xl lg:text-[66px] font-extrabold text-white leading-[1.16] sm:leading-[1.14] max-w-3xl tracking-tight break-words"
           style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
         >
           <span className="block">Every Paw Deserves</span>
@@ -120,7 +120,7 @@ export default function HeroSection() {
           initial="hidden"
           animate="show"
           custom={0.4}
-          className="mt-5 text-base sm:text-lg text-white/75 max-w-xl leading-relaxed"
+          className="mt-4 sm:mt-5 text-sm sm:text-lg text-white/75 max-w-xl leading-relaxed"
         >
           Meet loving dogs and cats looking for their forever families —
           while giving your own pets a safe, caring place to stay.
@@ -132,18 +132,18 @@ export default function HeroSection() {
           initial="hidden"
           animate="show"
           custom={0.55}
-          className="flex flex-wrap gap-4 mt-8"
+          className="flex flex-wrap gap-3 sm:gap-4 mt-7 sm:mt-8"
         >
           {/* Primary CTA */}
           <motion.a
             href="#adopt"
-            whileHover={{ scale: 1.06, boxShadow: '0 12px 32px rgba(34,197,94,0.45)' }}
+            whileHover={{ scale: 1.05, boxShadow: '0 12px 32px rgba(34,197,94,0.45)' }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold rounded-full shadow-lg shadow-green-500/30 transition-all text-sm sm:text-base"
+            className="inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-7 sm:py-3.5 bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold rounded-full shadow-lg shadow-green-500/30 transition-all text-xs sm:text-base"
           >
-            <PawPrint size={17} />
+            <PawPrint size={16} />
             Find a Pet
-            <ArrowRight size={15} />
+            <ArrowRight size={14} />
           </motion.a>
 
           {/* Secondary CTA */}
@@ -151,47 +151,39 @@ export default function HeroSection() {
             href="#boarding"
             whileHover={{ scale: 1.04, backgroundColor: 'rgba(255,255,255,0.15)' }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-full transition-all text-sm sm:text-base"
+            className="inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-7 sm:py-3.5 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-full transition-all text-xs sm:text-base"
           >
-            <Home size={17} />
+            <Home size={16} />
             Explore Boarding
-            <ArrowRight size={15} />
+            <ArrowRight size={14} />
           </motion.a>
         </motion.div>
       </div>
 
-   
-
-     
-
-     
-
-     
-
       {/* ── Stats Bar ── */}
       <div className="absolute bottom-0 left-0 right-0 z-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-3.5 sm:pb-6">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.8 }}
-            className="bg-white/15 backdrop-blur-lg border border-white/25 rounded-2xl sm:rounded-3xl px-4 py-4 sm:px-8 sm:py-5"
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="bg-white/15 backdrop-blur-lg border border-white/25 rounded-2xl sm:rounded-3xl p-3 sm:px-8 sm:py-5 max-w-full"
           >
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-6">
               {stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1 + i * 0.1, duration: 0.5 }}
-                  className="flex items-center gap-3"
+                  transition={{ delay: 0.7 + i * 0.08, duration: 0.4 }}
+                  className="flex items-center gap-2 sm:gap-3 min-w-0"
                 >
-                  <div className={`flex-shrink-0 w-9 h-9 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center ${stat.color}`}>
-                    <stat.icon size={17} />
+                  <div className={`flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center ${stat.color}`}>
+                    <stat.icon size={15} className="sm:w-[17px] sm:h-[17px]" />
                   </div>
-                  <div>
-                    <div className="text-white font-bold text-lg leading-none">{stat.value}</div>
-                    <div className="text-white/65 text-xs mt-0.5 leading-tight">{stat.label}</div>
+                  <div className="min-w-0 flex-1 overflow-hidden">
+                    <div className="text-white font-bold text-sm sm:text-lg leading-none">{stat.value}</div>
+                    <div className="text-white/80 text-[10px] sm:text-xs mt-0.5 leading-tight truncate">{stat.label}</div>
                   </div>
                 </motion.div>
               ))}

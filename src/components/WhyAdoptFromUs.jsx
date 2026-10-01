@@ -377,62 +377,62 @@ export default function WhyAdoptFromUs() {
             </div>
 
             {/* Stats Row Banner */}
-            <div className="rounded-2xl bg-[#ecf3e7] border border-[#d8e6d2] p-3 sm:p-4 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 items-center">
+            <div className="rounded-2xl bg-[#ecf3e7] border border-[#d8e6d2] p-2.5 sm:p-4 grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 items-center">
               {/* Stat 1: Pets Adopted */}
-              <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#2b6140] text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <PawPrint className="w-5 h-5 fill-current" />
+              <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#2b6140] text-white flex items-center justify-center shrink-0 shadow-sm">
+                  <PawPrint className="w-4 h-4 sm:w-5 sm:h-5 fill-current" />
                 </div>
-                <div>
-                  <div className="font-extrabold text-[#111827] text-base sm:text-lg leading-tight">
+                <div className="min-w-0 flex-1">
+                  <div className="font-extrabold text-[#111827] text-sm sm:text-lg leading-tight">
                     500+
                   </div>
-                  <div className="text-[11px] sm:text-xs text-gray-500 font-medium">
+                  <div className="text-[10px] sm:text-xs text-gray-500 font-medium truncate">
                     Pets Adopted
                   </div>
                 </div>
               </div>
 
               {/* Stat 2: Happy Families */}
-              <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#f39c12] text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <Heart className="w-5 h-5 fill-current" />
+              <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#f39c12] text-white flex items-center justify-center shrink-0 shadow-sm">
+                  <Heart className="w-4 h-4 sm:w-5 sm:h-5 fill-current" />
                 </div>
-                <div>
-                  <div className="font-extrabold text-[#111827] text-base sm:text-lg leading-tight">
+                <div className="min-w-0 flex-1">
+                  <div className="font-extrabold text-[#111827] text-sm sm:text-lg leading-tight">
                     300+
                   </div>
-                  <div className="text-[11px] sm:text-xs text-gray-500 font-medium">
+                  <div className="text-[10px] sm:text-xs text-gray-500 font-medium truncate">
                     Happy Families
                   </div>
                 </div>
               </div>
 
               {/* Stat 3: Safe & Loved */}
-              <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#2b6140] text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <ShieldCheck className="w-5 h-5" />
+              <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#2b6140] text-white flex items-center justify-center shrink-0 shadow-sm">
+                  <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
-                <div>
-                  <div className="font-extrabold text-[#111827] text-base sm:text-lg leading-tight">
+                <div className="min-w-0 flex-1">
+                  <div className="font-extrabold text-[#111827] text-sm sm:text-lg leading-tight">
                     100%
                   </div>
-                  <div className="text-[11px] sm:text-xs text-gray-500 font-medium">
+                  <div className="text-[10px] sm:text-xs text-gray-500 font-medium truncate">
                     Safe & Loved
                   </div>
                 </div>
               </div>
 
               {/* Stat 4: Across Pakistan */}
-              <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#e76f51] text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <MapPin className="w-5 h-5" />
+              <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#e76f51] text-white flex items-center justify-center shrink-0 shadow-sm">
+                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
-                <div>
-                  <div className="font-extrabold text-[#111827] text-base sm:text-lg leading-tight">
+                <div className="min-w-0 flex-1">
+                  <div className="font-extrabold text-[#111827] text-sm sm:text-lg leading-tight">
                     Across
                   </div>
-                  <div className="text-[11px] sm:text-xs text-gray-500 font-medium flex items-center gap-1">
+                  <div className="text-[10px] sm:text-xs text-gray-500 font-medium flex items-center gap-1 truncate">
                     <span>Pakistan</span>
                     <span role="img" aria-label="Pakistan flag">🇵🇰</span>
                   </div>
