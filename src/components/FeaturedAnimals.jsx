@@ -198,10 +198,10 @@ function PetCard({ pet }) {
   );
 }
 
-/* ── Main Section ── */
 export default function FeaturedAnimals() {
   return (
-    <section id="featured-animals" className="bg-[#f5f3ee] py-14 sm:py-20">
+    <section id="adopt" className="bg-[#f5f3ee] py-14 sm:py-20 scroll-mt-20 relative">
+      <span id="featured-animals" className="sr-only" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ── Section Header ── */}

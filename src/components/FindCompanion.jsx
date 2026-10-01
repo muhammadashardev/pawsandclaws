@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Search, Heart, PawPrint, Calendar, Ruler, Users,
@@ -111,6 +111,20 @@ export default function FindCompanion() {
   const [goodPets,   setGoodPets]   = useState(true);
   const [likedPets,  setLikedPets]  = useState({});
 
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash.toLowerCase();
+      if (hash.includes('dog')) {
+        setPetType('dog');
+      } else if (hash.includes('cat')) {
+        setPetType('cat');
+      }
+    };
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
+
   const resetFilters = () => {
     setAge('Any Age'); setSize('Any Size');
     setGender('Any Gender'); setEnergy('Any Level');
@@ -120,7 +134,9 @@ export default function FindCompanion() {
   const toggleLike = (id) => setLikedPets(p => ({ ...p, [id]: !p[id] }));
 
   return (
-    <section id="find-companion" className="bg-[#f5f3ee] py-14 sm:py-20">
+    <section id="find-companion" className="bg-[#f5f3ee] py-14 sm:py-20 scroll-mt-20 relative">
+      <span id="dogs" className="sr-only" />
+      <span id="cats" className="sr-only" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ═══════════════════════════════
@@ -259,15 +275,15 @@ export default function FindCompanion() {
           >
 
             {/* ── Trust Badges Bar ── */}
-            <div className="grid grid-cols-3 gap-2 sm:gap-3">
+            <div className="grid grid-cols-3 gap-1.5 sm:gap-3">
               {trustBadges.map((b) => (
                 <div
                   key={b.title}
-                  className="bg-white rounded-2xl px-3 py-3 flex flex-col items-start gap-1 border border-gray-100 shadow-sm"
+                  className="bg-white rounded-xl sm:rounded-2xl p-2 sm:p-3 flex flex-col items-start gap-0.5 sm:gap-1 border border-gray-100 shadow-xs sm:shadow-sm"
                 >
-                  <b.icon size={16} className={b.color} />
-                  <span className="text-xs font-bold text-gray-800 leading-tight">{b.title}</span>
-                  <span className="text-[10px] text-gray-400 leading-snug">{b.sub}</span>
+                  <b.icon size={15} className={`${b.color} shrink-0`} />
+                  <span className="text-[11px] sm:text-xs font-bold text-gray-800 leading-tight">{b.title}</span>
+                  <span className="text-[9px] sm:text-[10px] text-gray-400 leading-snug line-clamp-1 sm:line-clamp-none">{b.sub}</span>
                 </div>
               ))}
             </div>
@@ -276,14 +292,14 @@ export default function FindCompanion() {
             <div className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden">
 
               {/* Results header */}
-              <div className="flex items-center justify-between px-5 pt-5 pb-4">
+              <div className="flex items-center justify-between px-4 sm:px-5 pt-4 sm:pt-5 pb-3 sm:pb-4">
                 <div>
                   <div className="flex items-center gap-1.5 mb-1">
-                    <Sparkles size={14} className="text-amber-500" />
+                    <Sparkles size={13} className="text-amber-500" />
                     <span className="text-xs text-gray-500 font-medium italic">Great news!</span>
                   </div>
                   <h3
-                    className="text-xl sm:text-2xl font-extrabold text-gray-900"
+                    className="text-lg sm:text-2xl font-extrabold text-gray-900"
                     style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
                   >
                     We found{' '}
@@ -306,21 +322,20 @@ export default function FindCompanion() {
               </div>
 
               {/* Featured Pet */}
-              <div className="px-5 pb-4">
-                <div className="flex gap-4 bg-gray-50 rounded-2xl overflow-hidden">
+              <div className="px-3.5 sm:px-5 pb-4">
+                <div className="flex flex-col sm:flex-row gap-3.5 sm:gap-4 bg-gray-50 rounded-2xl overflow-hidden border border-gray-100/80">
 
                   {/* Pet image */}
-                  <div className="relative w-44 sm:w-48 flex-shrink-0">
+                  <div className="relative w-full sm:w-48 md:w-52 h-52 sm:h-auto min-h-[200px] flex-shrink-0">
                     <img
                       src={buddyImg}
                       alt="Buddy – Best Match golden retriever"
                       className="w-full h-full object-cover"
-                      style={{ minHeight: '200px' }}
                     />
                     {/* Heart button */}
                     <button
                       onClick={() => toggleLike('buddy')}
-                      className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-transform"
+                      className="absolute top-3 right-3 w-8 h-8 bg-white/90 backdrop-blur-xs rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-transform"
                     >
                       <Heart
                         size={14}
@@ -330,7 +345,7 @@ export default function FindCompanion() {
                   </div>
 
                   {/* Pet details */}
-                  <div className="flex flex-col justify-between py-4 pr-4 flex-1 min-w-0">
+                  <div className="flex flex-col justify-between p-4 sm:py-4 sm:pr-4 sm:pl-0 flex-1 min-w-0">
                     {/* Best Match badge */}
                     <div>
                       <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-amber-50 border border-amber-200 rounded-full text-amber-600 text-[10px] font-semibold mb-2">
@@ -351,12 +366,12 @@ export default function FindCompanion() {
                         </span>
                       </div>
 
-                      <p className="text-xs text-gray-500 mb-3">
+                      <p className="text-xs text-gray-500 mb-2.5">
                         2 years old · Male · Large
                       </p>
 
                       {/* Tags */}
-                      <div className="flex flex-wrap gap-1.5 mb-3">
+                      <div className="flex flex-wrap gap-1.5 mb-2.5">
                         {[
                           { icon: Zap, label: 'High Energy' },
                           { icon: Baby, label: 'Good with Kids' },
@@ -366,9 +381,9 @@ export default function FindCompanion() {
                           return (
                             <span
                               key={tag.label}
-                              className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-green-50 text-green-700 text-[11px] font-medium rounded-full border border-green-100"
+                              className="inline-flex items-center gap-1 px-2 py-0.5 bg-green-50 text-green-700 text-[10px] sm:text-[11px] font-medium rounded-full border border-green-100"
                             >
-                              <TagIcon size={12} className="text-green-600" />
+                              <TagIcon size={11} className="text-green-600" />
                               {tag.label}
                             </span>
                           );
@@ -376,17 +391,16 @@ export default function FindCompanion() {
                       </div>
 
                       <p className="text-xs text-gray-500 leading-relaxed mb-4">
-                        Friendly, playful and loves everyone.
-                        Great with kids and other pets.
+                        Friendly, playful and loves everyone. Great with kids and other pets.
                       </p>
                     </div>
 
                     {/* Action row */}
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 pt-2 border-t border-gray-200/50">
                       <motion.button
-                        whileHover={{ scale: 1.04, boxShadow: '0 6px 18px rgba(34,197,94,0.35)' }}
+                        whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
-                        className="flex items-center gap-1.5 px-4 py-2 bg-green-500 text-white text-xs font-bold rounded-xl shadow-sm hover:bg-green-600 transition-colors"
+                        className="flex items-center gap-1.5 px-4 py-2.5 bg-green-500 text-white text-xs font-bold rounded-xl shadow-xs hover:bg-green-600 transition-colors"
                       >
                         View Profile
                         <ArrowRight size={12} />
@@ -394,7 +408,7 @@ export default function FindCompanion() {
 
                       <button
                         onClick={() => toggleLike('buddy-heart')}
-                        className="w-8 h-8 rounded-xl border border-gray-200 flex items-center justify-center hover:border-rose-300 transition-colors"
+                        className="w-9 h-9 rounded-xl border border-gray-200 flex items-center justify-center hover:border-rose-300 transition-colors bg-white"
                       >
                         <Heart size={14} className={likedPets['buddy-heart'] ? 'fill-rose-500 text-rose-500' : 'text-gray-400'} />
                       </button>
@@ -404,40 +418,40 @@ export default function FindCompanion() {
               </div>
 
               {/* Small Pet Cards Row */}
-              <div className="grid grid-cols-3 gap-3 px-5 pb-5">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 px-3.5 sm:px-5 pb-4 sm:pb-5">
                 {[
-                  { id: 'luna', name: 'Luna',  type: 'Cat', age: '1 year',   gender: 'Female', energy: '⚡ Medium Energy', img: lunaImg },
-                  { id: 'max',  name: 'Max',   type: 'Dog', age: '3 years',  gender: 'Male',   energy: '⚡ High Energy',   img: maxImg  },
-                  { id: 'milo', name: 'Milo',  type: 'Cat', age: '6 months', gender: 'Male',   energy: '⚡ Medium Energy', img: miloImg },
+                  { id: 'luna', name: 'Luna',  type: 'Cat', age: '1 year',   gender: 'Female', energy: '⚡ Medium', img: lunaImg },
+                  { id: 'max',  name: 'Max',   type: 'Dog', age: '3 years',  gender: 'Male',   energy: '⚡ High',   img: maxImg  },
+                  { id: 'milo', name: 'Milo',  type: 'Cat', age: '6 months', gender: 'Male',   energy: '⚡ Medium', img: miloImg },
                 ].map((pet) => (
-                  <div key={pet.id} className="relative bg-gray-50 rounded-2xl overflow-hidden group">
+                  <div key={pet.id} className="relative bg-gray-50 rounded-2xl overflow-hidden group border border-gray-100">
                     {/* Image */}
                     <div className="relative w-full aspect-square">
                       <img
                         src={pet.img}
                         alt={pet.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       {/* Heart */}
                       <button
                         onClick={() => toggleLike(pet.id)}
-                        className="absolute top-2 right-2 w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-sm"
+                        className="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 w-6 h-6 bg-white/90 backdrop-blur-xs rounded-full flex items-center justify-center shadow-xs"
                       >
                         <Heart size={10} className={likedPets[pet.id] ? 'fill-rose-500 text-rose-500' : 'text-gray-400'} />
                       </button>
                     </div>
 
                     {/* Info */}
-                    <div className="p-2">
+                    <div className="p-2 sm:p-2.5">
                       <div className="flex items-center gap-1 mb-0.5">
-                        <span className="text-xs font-bold text-gray-900">{pet.name}</span>
+                        <span className="text-[11px] sm:text-xs font-bold text-gray-900 truncate">{pet.name}</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <PawPrint size={8} className="text-green-400 flex-shrink-0" />
-                        <span className="text-[9px] text-gray-500">{pet.type}</span>
+                        <PawPrint size={8} className="text-green-500 flex-shrink-0" />
+                        <span className="text-[8px] sm:text-[9px] text-gray-500">{pet.type}</span>
                       </div>
-                      <p className="text-[9px] text-gray-400 mt-0.5">{pet.age} · {pet.gender}</p>
-                      <p className="text-[9px] text-green-600 mt-0.5 font-medium">{pet.energy}</p>
+                      <p className="text-[8px] sm:text-[9px] text-gray-400 mt-0.5 truncate">{pet.age} · {pet.gender}</p>
+                      <p className="text-[8px] sm:text-[9px] text-green-600 mt-0.5 font-medium truncate">{pet.energy}</p>
                     </div>
                   </div>
                 ))}

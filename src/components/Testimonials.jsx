@@ -241,7 +241,9 @@ export default function Testimonials() {
   const currentStory = beforeAfterStories[activeStoryIndex];
 
   return (
-    <section className="relative bg-[#FAF7F0] py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden font-['Plus_Jakarta_Sans',sans-serif]">
+    <section id="stories" className="relative bg-[#FAF7F0] py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden font-['Plus_Jakarta_Sans',sans-serif] scroll-mt-20">
+      <span id="testimonials" className="sr-only" />
+      <span id="blog" className="sr-only" />
       
       {/* Decorative background paw watermarks */}
       <div className="absolute top-12 left-10 pointer-events-none opacity-[0.05] select-none text-[#275d33]">

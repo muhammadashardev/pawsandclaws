@@ -95,21 +95,22 @@ export default function HeroSection() {
           initial="hidden"
           animate="show"
           custom={0.2}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight max-w-2xl"
+          className="text-3xl sm:text-5xl md:text-6xl lg:text-[66px] font-extrabold text-white leading-[1.14] max-w-3xl tracking-tight"
           style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
         >
-          Every Paw Deserves
-          <br />
-          a Place to Call{' '}
-          <span className="text-green-400 relative inline-block">
-            Home.
-            {/* underline accent */}
-            <motion.span
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.7, delay: 0.9, ease: 'easeOut' }}
-              className="absolute -bottom-1 left-0 right-0 h-1.5 bg-green-400/40 rounded-full origin-left"
-            />
+          <span className="block">Every Paw Deserves</span>
+          <span className="block mt-1 sm:mt-2">
+            a Place to Call{' '}
+            <span className="text-green-400 relative inline-block">
+              Home.
+              {/* sleek accent underline */}
+              <motion.span
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.7, delay: 0.8, ease: 'easeOut' }}
+                className="absolute -bottom-1.5 left-0 right-0 h-1 sm:h-1.5 bg-green-400 rounded-full origin-left shadow-sm"
+              />
+            </span>
           </span>
         </motion.h1>
 
@@ -159,104 +160,13 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* ── Floating Pet Profile Card – Buddy (top-right area) ── */}
-      <motion.div
-        variants={slideLeft}
-        initial="hidden"
-        animate="show"
-        custom={0.7}
-        className="absolute top-[22%] right-4 sm:right-10 lg:right-24 z-20 hidden sm:block"
-      >
-        <motion.div
-          animate={{ y: [0, -8, 0] }}
-          transition={{ repeat: Infinity, duration: 3.5, ease: 'easeInOut' }}
-          className="flex items-center gap-2.5 bg-white/95 backdrop-blur-md rounded-2xl px-4 py-2.5 shadow-xl border border-white/60"
-        >
-          <div className="w-10 h-10 rounded-xl overflow-hidden ring-2 ring-green-400">
-            <img src={heroBg} alt="Buddy" className="w-full h-full object-cover object-top scale-150" />
-          </div>
-          <div>
-            <div className="flex items-center gap-1.5">
-              <span className="text-sm font-bold text-gray-900">Buddy</span>
-              <Heart size={12} className="text-rose-400 fill-rose-400" />
-            </div>
-            <span className="text-xs text-gray-500">2 years · Male</span>
-          </div>
-        </motion.div>
-      </motion.div>
+   
 
-      {/* ── Floating Pet Profile Card – Luna (middle-right) ── */}
-      <motion.div
-        variants={slideLeft}
-        initial="hidden"
-        animate="show"
-        custom={0.9}
-        className="absolute top-[45%] right-4 sm:right-6 lg:right-14 z-20 hidden sm:block"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut', delay: 1 }}
-          className="flex items-center gap-2.5 bg-white/95 backdrop-blur-md rounded-2xl px-4 py-2.5 shadow-xl border border-white/60"
-        >
-          <div className="w-10 h-10 rounded-xl overflow-hidden ring-2 ring-rose-400">
-            <img src={heroBg} alt="Luna" className="w-full h-full object-cover object-right scale-150" />
-          </div>
-          <div>
-            <div className="flex items-center gap-1.5">
-              <span className="text-sm font-bold text-gray-900">Luna</span>
-              <Heart size={12} className="text-rose-400 fill-rose-400" />
-            </div>
-            <span className="text-xs text-gray-500">1 year · Female</span>
-          </div>
-        </motion.div>
-      </motion.div>
+     
 
-      {/* ── Floating Badge – Adopt ── */}
-      <motion.div
-        variants={fadeIn}
-        initial="hidden"
-        animate="show"
-        custom={1.0}
-        className="absolute bottom-[28%] left-6 sm:left-12 z-20 hidden md:flex flex-col items-start"
-      >
-        <motion.div
-          animate={{ rotate: [-2, 2, -2] }}
-          transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
-          className="bg-white/90 backdrop-blur-md rounded-2xl px-4 py-3 shadow-xl border border-white/50"
-        >
-          <div className="flex items-center gap-2 text-green-600 font-bold text-sm italic mb-0.5">
-            <PawPrint size={13} />
-            Adopt
-          </div>
-          <div className="text-xs text-gray-500">Change a life<br />forever</div>
-        </motion.div>
-        {/* arrow decoration */}
-        <svg className="ml-6 -mt-1" width="28" height="24" viewBox="0 0 28 24" fill="none">
-          <path d="M4 4 Q14 0 24 12" stroke="#4ade80" strokeWidth="2" strokeLinecap="round" fill="none" />
-          <path d="M20 10 L24 12 L22 16" stroke="#4ade80" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </motion.div>
+     
 
-      {/* ── Floating Badge – Boarding ── */}
-      <motion.div
-        variants={slideLeft}
-        initial="hidden"
-        animate="show"
-        custom={1.1}
-        className="absolute bottom-[38%] right-4 sm:right-8 lg:right-20 z-20 hidden lg:flex flex-col items-end"
-      >
-        <motion.div
-          animate={{ y: [0, -5, 0] }}
-          transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut', delay: 0.5 }}
-          className="bg-white/90 backdrop-blur-md rounded-2xl px-4 py-3 shadow-xl border border-white/50 text-right"
-        >
-          <div className="flex items-center justify-end gap-2 text-blue-500 font-bold text-sm italic mb-0.5">
-            Boarding
-            <Home size={13} />
-          </div>
-          <div className="text-xs text-gray-500">Safe stays,<br />happy pets</div>
-        </motion.div>
-      </motion.div>
+     
 
       {/* ── Stats Bar ── */}
       <div className="absolute bottom-0 left-0 right-0 z-20">

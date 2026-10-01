@@ -72,9 +72,12 @@ export default function AdoptionJourney() {
 
   return (
     <section
-      id="adoption-journey"
-      className="relative bg-[#f5f3ee] pt-14 sm:pt-20 pb-0 overflow-hidden"
+      id="how-it-works"
+      className="relative bg-[#f5f3ee] pt-14 sm:pt-20 pb-0 overflow-hidden scroll-mt-20"
     >
+      <span id="adoption-journey" className="sr-only" />
+      <span id="process" className="sr-only" />
+      <span id="faqs" className="sr-only" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ══════════════════════════════════

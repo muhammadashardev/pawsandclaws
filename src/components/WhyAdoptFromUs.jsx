@@ -131,7 +131,9 @@ export default function WhyAdoptFromUs() {
   };
 
   return (
-    <section className="relative bg-[#f7f6f2] py-20 px-4 sm:px-6 lg:px-8 overflow-hidden font-['Plus_Jakarta_Sans',sans-serif]">
+    <section id="about" className="relative bg-[#f7f6f2] py-20 px-4 sm:px-6 lg:px-8 overflow-hidden font-['Plus_Jakarta_Sans',sans-serif] scroll-mt-20">
+      <span id="why-adopt" className="sr-only" />
+      <span id="facilities" className="sr-only" />
       <div className="max-w-7xl mx-auto">
         {/* Main 2-column grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">

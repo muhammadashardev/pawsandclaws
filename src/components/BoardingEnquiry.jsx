@@ -68,7 +68,9 @@ export default function BoardingEnquiry() {
   };
 
   return (
-    <section className="relative bg-[#FAF7F0] py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden font-['Plus_Jakarta_Sans',sans-serif]">
+    <section id="contact" className="relative bg-[#FAF7F0] py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden font-['Plus_Jakarta_Sans',sans-serif] scroll-mt-20">
+      <span id="enquiry" className="sr-only" />
+      <span id="donate" className="sr-only" />
       {/* Decorative leaf branch in bottom-left */}
       <div className="absolute bottom-0 left-0 pointer-events-none z-10 hidden sm:block w-36 sm:w-48 lg:w-56 select-none opacity-95">
         <img

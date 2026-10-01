@@ -153,9 +153,9 @@ export default function Footer() {
             {/* Column 1: Brand Info & Mission (4 cols) */}
             <div className="lg:col-span-4 flex flex-col items-start pr-0 lg:pr-6">
               {/* Brand Logo */}
-              <div className="flex items-center gap-3 mb-4">
+              <a href="#hero" className="flex items-center gap-3 mb-4 group cursor-pointer">
                 <div className="relative">
-                  <div className="w-12 h-12 rounded-2xl bg-[#275d33] text-white flex items-center justify-center shadow-sm">
+                  <div className="w-12 h-12 rounded-2xl bg-[#275d33] group-hover:bg-[#1e4828] text-white flex items-center justify-center shadow-sm transition-colors">
                     <PawPrint className="w-6 h-6 fill-white" />
                   </div>
                   {/* Floating outline heart doodle over roof */}
@@ -174,7 +174,7 @@ export default function Footer() {
                     Rescue. Care. Love.
                   </span>
                 </div>
-              </div>
+              </a>
 
               {/* Tagline */}
               <p className="text-stone-600 text-sm leading-relaxed mb-6 max-w-sm">

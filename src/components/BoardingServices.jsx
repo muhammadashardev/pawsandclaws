@@ -82,7 +82,9 @@ export default function BoardingServices() {
   const [activeThumb, setActiveThumb] = useState(0);
 
   return (
-    <section className="relative bg-[#f7f6f2] py-20 px-4 sm:px-6 lg:px-8 overflow-hidden font-['Plus_Jakarta_Sans',sans-serif]">
+    <section id="boarding" className="relative bg-[#f7f6f2] py-20 px-4 sm:px-6 lg:px-8 overflow-hidden font-['Plus_Jakarta_Sans',sans-serif] scroll-mt-20">
+      <span id="boarding-services" className="sr-only" />
+      <span id="rates" className="sr-only" />
       <div className="max-w-7xl mx-auto">
 
         {/* ================= TOP SECTION (2 COLUMNS) ================= */}
